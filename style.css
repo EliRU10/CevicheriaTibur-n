@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e88e5, #42a5f5, #90caf9);
+    background-size: 400% 400%;
+    animation: gradientBG 6s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Animación para fondo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.formulario {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.formulario h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #6C3483;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.formulario form {
+    width: 100%;
+}
+
+form .bloque {
+    position: relative;
+    margin: 20px 0;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+}
+
+.bloque input {
+    width: 95%; /* Cambiado a 90% para hacer la caja un poco más corta */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.bloque input:focus {
+    color: #333;
+}
+
+.bloque label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.bloque input:focus ~ label,
+.bloque input:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 14px;
+    color: #6C3483;
+}
+
+.bloque span::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #6C3483;
+    transition: width 0.3s ease;
+}
+
+.bloque input:focus ~ span::before,
+.bloque input:not(:placeholder-shown) ~ span::before {
+    width: 100%;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background: #6C3483;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #8e44ad;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+img {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Media Queries para diseño responsivo */
+@media (max-width: 768px) {
+    .formulario {
+        padding: 20px 15px;
+    }
+
+    .formulario h1 {
+        font-size: 20px;
+    }
+
+    input[type="submit"] {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario {
+        padding: 15px 10px;
+    }
+
+    .formulario h1 {
+        font-size: 18px;
+    }
+
+    input[type="submit"] {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    img {
+        width: 80px;
+    }
+}
+
+/* Modo alto contraste */
+body.alto-contraste {
+    background-color: #000;
+    color: #fff;
+}
+
+body.alto-contraste .formulario {
+    background-color: #222;
+    color: #fff;
+    border: 2px solid white;
+}
+
+body.alto-contraste .formulario h1 {
+    color: #FF0;
+}
+
+body.alto-contraste .bloque input {
+    background-color: #333;
+    color: white;
+    border: 2px solid white;
+}
+
+body.alto-contraste input[type="submit"] {
+    background-color: #FF0;
+    color: #000;
+}
+
+body.alto-contraste input[type="submit"]:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+body.alto-contraste .bloque label {
+    color: white;
+}
+
+body.alto-contraste img {
+    border-radius: 50%;
+    border: 2px solid #FF0;
+}
+
+/* Estilos del botón de alternancia */
+#toggle-contrast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #6C3483;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-contrast:hover {
+    background-color: #8e44ad;
+}
+
+#toggle-contrast:focus {
+    outline: none;
+}
